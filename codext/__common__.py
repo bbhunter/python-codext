@@ -1371,8 +1371,8 @@ def __score(prev_input, input, prev_encoding, codec, heuristic=False, extended=F
                         expf = expf(f, encoding)
                     except TypeError:
                         expf = expf(f)
-                elif isinstance(expf, (int, float)):
-                    epxf = f - .1 <= expf <= f + .1
+                if isinstance(expf, (int, float)):
+                    expf = (f - .1 <= expf <= f + .1)
                 elif isinstance(expf, (tuple, list)) and len(expf) == 2:
                     expf = f - expf[1] <= expf[0] <= expf[1] + .1
                 s += [-1., .1][expf]
